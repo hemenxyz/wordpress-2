@@ -1,0 +1,16 @@
+# Infrastructure as code in for doprax.com test private commit msg
+volumes:
+  - name:  http_root
+    mount: /var/www/html/
+
+services:
+  - mysql:
+      tag: 5.7
+      volumes:
+        - name: mysql_vol
+          mount: /var/lib/mysql/
+      envs:
+        - MYSQL_ROOT_PASSWORD: PASSWORD
+        - MYSQL_DATABASE: wordpress
+        - MYSQL_USER: dbuser01
+        - MYSQL_PASSWORD: PASSWORD
